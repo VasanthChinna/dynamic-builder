@@ -1,0 +1,242 @@
+{
+  "name": "Default Form Group",
+  "description": "Default form group",
+  "attributes": [
+    [
+      {
+        "class": "col-md-12",
+        "label": "Name",
+        "name": "name",
+        "value": "",
+        "placeholder": "Enter name",
+        "type": "text",
+        "options": [],
+        "acceptedFileTypes": [],
+        "required": false,
+        "toggle": false
+      },
+      {
+        "class": "col-md-12",
+        "label": "Phone Number",
+        "name": "phone_number",
+        "value": "",
+        "placeholder": "",
+        "type": "number",
+        "options": [],
+        "acceptedFileTypes": [],
+        "required": false,
+        "toggle": false
+      },
+      {
+        "class": "col-md-12",
+        "label": "Date of birth",
+        "name": "date_of_birth",
+        "value": "",
+        "placeholder": "",
+        "type": "date",
+        "options": [],
+        "acceptedFileTypes": [],
+        "required": false,
+        "toggle": false
+      },
+      {
+        "class": "col-md-12",
+        "label": "Gender",
+        "name": "gender",
+        "value": "",
+        "placeholder": "",
+        "type": "select",
+        "options": [
+          {
+            "id": 0,
+            "value": "Male"
+          },
+          {
+            "id": 1,
+            "value": "Female"
+          }
+        ],
+        "acceptedFileTypes": [],
+        "required": false,
+        "toggle": false
+      }
+    ],
+    [
+      {
+        "class": "col-md-12",
+        "label": "Name",
+        "name": "name",
+        "value": "",
+        "placeholder": "Enter name",
+        "type": "text",
+        "options": [],
+        "acceptedFileTypes": [],
+        "required": false,
+        "toggle": false
+      },
+      {
+        "class": "col-md-12",
+        "label": "Phone Number",
+        "name": "phone_number",
+        "value": "",
+        "placeholder": "",
+        "type": "number",
+        "options": [],
+        "acceptedFileTypes": [],
+        "required": false,
+        "toggle": false
+      },
+      {
+        "class": "col-md-12",
+        "label": "Date of birth",
+        "name": "date_of_birth",
+        "value": "",
+        "placeholder": "",
+        "type": "date",
+        "options": [],
+        "acceptedFileTypes": [],
+        "required": false,
+        "toggle": false
+      },
+      {
+        "class": "col-md-12",
+        "label": "Gender",
+        "name": "gender",
+        "value": "",
+        "placeholder": "",
+        "type": "select",
+        "options": [
+          {
+            "id": 0,
+            "value": "Male"
+          },
+          {
+            "id": 1,
+            "value": "Female"
+          }
+        ],
+        "acceptedFileTypes": [],
+        "required": false,
+        "toggle": false
+      }
+    ],
+    [
+      {
+        "class": "col-md-12",
+        "label": "Name",
+        "name": "name",
+        "value": "",
+        "placeholder": "Enter name",
+        "type": "text",
+        "options": [],
+        "acceptedFileTypes": [],
+        "required": false,
+        "toggle": false
+      },
+      {
+        "class": "col-md-12",
+        "label": "Phone Number",
+        "name": "phone_number",
+        "value": "",
+        "placeholder": "",
+        "type": "number",
+        "options": [],
+        "acceptedFileTypes": [],
+        "required": false,
+        "toggle": false
+      },
+      {
+        "class": "col-md-12",
+        "label": "Date of birth",
+        "name": "date_of_birth",
+        "value": "",
+        "placeholder": "",
+        "type": "date",
+        "options": [],
+        "acceptedFileTypes": [],
+        "required": false,
+        "toggle": false
+      },
+      {
+        "class": "col-md-12",
+        "label": "Gender",
+        "name": "gender",
+        "value": "",
+        "placeholder": "",
+        "type": "select",
+        "options": [
+          {
+            "id": 0,
+            "value": "Male"
+          },
+          {
+            "id": 1,
+            "value": "Female"
+          }
+        ],
+        "acceptedFileTypes": [],
+        "required": false,
+        "toggle": false
+      }
+    ],
+    [
+      {
+        "class": "col-md-12",
+        "label": "Name",
+        "name": "name",
+        "value": "",
+        "placeholder": "Enter name",
+        "type": "text",
+        "options": [],
+        "acceptedFileTypes": [],
+        "required": false,
+        "toggle": false
+      },
+      {
+        "class": "col-md-12",
+        "label": "Phone Number",
+        "name": "phone_number",
+        "value": "",
+        "placeholder": "",
+        "type": "number",
+        "options": [],
+        "acceptedFileTypes": [],
+        "required": false,
+        "toggle": false
+      },
+      {
+        "class": "col-md-12",
+        "label": "Date of birth",
+        "name": "date_of_birth",
+        "value": "",
+        "placeholder": "",
+        "type": "date",
+        "options": [],
+        "acceptedFileTypes": [],
+        "required": false,
+        "toggle": false
+      },
+      {
+        "class": "col-md-12",
+        "label": "Gender",
+        "name": "gender",
+        "value": "",
+        "placeholder": "",
+        "type": "select",
+        "options": [
+          {
+            "id": 0,
+            "value": "Male"
+          },
+          {
+            "id": 1,
+            "value": "Female"
+          }
+        ],
+        "acceptedFileTypes": [],
+        "required": false,
+        "toggle": false
+      }
+    ]
+  ]
+}

@@ -1,0 +1,67 @@
+<div class="flex justify-between md:row-span-2 md:px-2 md:pt-1">
+  <div class="md:text-xs lg:text-base leading-[1.5] font-semibold">
+    Field Groups
+  </div>
+  <div class="text-blue-600 dark:text-sky-400">
+    <button
+      type="button"
+      class="md:text-xs lg:text-base text-gray-900 cursor-pointer rounded-sm focus:outline-none bg-white hover:bg-gray-100 hover:text-blue-700 focus:z-10 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+      (click)="formsService.newFormClick.next('')"
+    >
+      <div class="flex justify-end">
+        <div class="w-4 content-center">
+          <img
+            src="images/circle-plus.svg"
+            alt="logo"
+            class="md:w-4 md:h-4 md:pt-1 lg:pt-0"
+            loading="lazy"
+          />
+        </div>
+        <div class="md:pl-1 md:text-xs lg:text-base">Create new</div>
+      </div>
+    </button>
+  </div>
+</div>
+<div class="md:px-2 md:pt-1 lg:px-3 lg:pt-2">
+  <div class="border-2 border-gray-300 border-t-0 border-r-0 border-l-0">
+    <button
+      class="md:text-xs font-normal lg:text-base md:pt-1 md:pb-1 w-full md:mb-1 max-w-10/10 cursor-pointer text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+      (click)="formsService.defaultFormList.next('defaultFormList')"
+    >
+      Default Field group
+    </button>
+  </div>
+</div>
+<div
+  class="md:px-2 md:pt-1"
+  cdkDropList
+  (dragover)="dragOver($event)"
+  (cdkDropListDropped)="onDrop($event)"
+>
+  <div class="">
+    @for(item of formsList; track $index){
+
+    <button
+      class="md:text-xs lg:text-base w-full max-w-10/10 font-normal text-gray-900 cursor-pointer focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+      cdkScrollable
+      cdkDrag
+      (click)="formsService.existingFormList.next($index)"
+    >
+      <div class="flex md:h-6.5 lg:h-8 justify-start">
+        <div
+          class="md:w-6 md:pl-2 content-center border border-gray-300 border-t-0 border-l-0 border-r-1 border-b-0"
+        >
+          <img
+            src="images/dots-v.svg"
+            alt="logo"
+            class="md:w-2 md:h-3 md:pt-1"
+            loading="lazy"
+          />
+        </div>
+        <div class="md:text-xs lg:text-base md:pl-2 font-normal content-center">
+          {{ item.name }}
+        </div>
+      </div></button
+    >}
+  </div>
+</div>

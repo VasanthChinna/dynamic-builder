@@ -1,0 +1,18 @@
+<mat-dialog-content class="mat-typography">
+  <h3>Alert</h3>
+
+  <p>Are you sure you want to remove this field</p>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button
+    mat-button
+    [mat-dialog-close]="true"
+    cdkFocusInitial
+    class="btn btn-danger"
+    style="color: rgb(255, 0, 0)"
+  >
+    Remove
+  </button>
+</mat-dialog-actions>

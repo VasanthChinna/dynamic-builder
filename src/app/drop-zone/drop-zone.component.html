@@ -1,0 +1,434 @@
+<div class="xl:size-full">
+  <div class="justify-items-center">
+    <div
+      id="toast-success"
+      class="flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow-sm dark:text-gray-400 dark:bg-gray-800"
+      role="alert"
+      *ngIf="successToast"
+    >
+      <div
+        class="inline-flex items-center justify-center shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200"
+      >
+        <svg
+          class="w-5 h-5"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
+          />
+        </svg>
+        <span class="sr-only">Check icon</span>
+      </div>
+      <div class="ms-3 text-sm font-normal">Form created successfully.</div>
+      <button
+        type="button"
+        class="ms-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+        data-dismiss-target="#toast-success"
+        aria-label="Close"
+      >
+        <span class="sr-only">Close</span>
+        <svg
+          class="w-3 h-3"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 14 14"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+          />
+        </svg>
+      </button>
+    </div>
+    <div
+      id="toast-danger"
+      class="flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow-sm dark:text-gray-400 dark:bg-gray-800"
+      role="alert"
+      *ngIf="errorToast"
+    >
+      <div
+        class="inline-flex items-center justify-center shrink-0 w-8 h-8 text-red-500 bg-red-100 rounded-lg dark:bg-red-800 dark:text-red-200"
+      >
+        <svg
+          class="w-5 h-5"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 11.793a1 1 0 1 1-1.414 1.414L10 11.414l-2.293 2.293a1 1 0 0 1-1.414-1.414L8.586 10 6.293 7.707a1 1 0 0 1 1.414-1.414L10 8.586l2.293-2.293a1 1 0 0 1 1.414 1.414L11.414 10l2.293 2.293Z"
+          />
+        </svg>
+        <span class="sr-only">Error icon</span>
+      </div>
+      <div class="ms-3 text-sm font-normal">Form Name already Exists.</div>
+      <button
+        type="button"
+        class="ms-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+        data-dismiss-target="#toast-danger"
+        aria-label="Close"
+      >
+        <span class="sr-only">Close</span>
+        <svg
+          class="w-3 h-3"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 14 14"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="justify-items-center mt-2" *ngIf="droppedItem.length >= 1">
+    <div class="flex flex-col w-xl justify-items-center">
+      <div class="block px-6 py-2 bg-white border border-gray-200 rounded-sm">
+        <div class="relative z-0">
+          <input
+            type="text"
+            id="floating_standard"
+            class="block px-0 w-full text-2xl font-bold tracking-tight text-gray-900 bg-transparent border-0 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+            placeholder="Enter Form Name"
+            autocomplete="off"
+            [(ngModel)]="formName"
+          />
+        </div>
+        <p class="text-gray-500 italic text-sm mb-1">
+          <input
+            class="w-xl bg-transparent border-0 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0"
+            placeholder="Enter Description"
+            autocomplete="off"
+            [(ngModel)]="formDescription"
+          />
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+  class="drop-zone h-full justify-items-center"
+  cdkDropList
+    (dragover)="dragOver($event)"
+    (drop)="onDrop($event)"
+    (cdkDropListDropped)="onDrop2($event)"
+  >
+    <div
+      *ngIf="droppedItem.length === 0"
+      class="max-h-auto justify-items-center content-center"
+    >
+      <div class="content-center justify-items-center">
+        Drag and Drop a From fields here to create Form
+      </div>
+    </div>
+
+    <div
+      cdkScrollable
+      cdkDrag
+      class="flex-col w-xl h-auto mb-2"
+      *ngFor="let item of droppedItem; let i = index"
+    >
+      <div class="flex bg-white border h-auto border-gray-200 rounded-sm">
+        <div
+          class="w-10 content-center justify-items-center flex-none border border-gray-300 border-t-0 border-l-0 border-r-1 border-b-0"
+        >
+          <img
+            src="images/dots-v.svg"
+            alt="logo"
+            [attr.width]="'15px'"
+            [attr.height]="'15px'"
+          />
+        </div>
+        <div class="flex-auto row">
+          <div class="min-h-full">
+            <div class="mx-auto px-4">
+              <div class="flex h-6.5 items-center justify-between">
+                <div class="flex items-center">
+                  <span class="">
+                    <div class="text-base">
+                      {{ item.label }}
+                      <span *ngIf="item.validators" class="text-red-900"
+                        >*</span
+                      >
+                    </div>
+                  </span>
+                </div>
+                <div class="md:block">
+                  <div class="flex items-center mt-2.5">
+                    <span
+                      class="mr-6 cursor-pointer"
+                      title="edit"
+                      *ngIf="!item.toggle"
+                      (click)="item.toggle = true"
+                      ><img
+                        src="images/pen-solid.svg"
+                        alt="logo"
+                        [attr.width]="'15px'"
+                        [attr.height]="'15px'"
+                    /></span>
+                    <span
+                      class="mr-6 cursor-pointer"
+                      title="close"
+                      *ngIf="item.toggle"
+                      (click)="item.toggle = false"
+                      ><img
+                        src="images/xmark.svg"
+                        alt="logo"
+                        [attr.width]="'15px'"
+                        [attr.height]="'15px'"
+                    /></span>
+                    <span class="cursor-pointer" (click)="removeField(i)"
+                      ><img
+                        src="images/trash.svg"
+                        alt="logo"
+                        [attr.width]="'15px'"
+                        [attr.height]="'15px'"
+                    /></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="text-gray-500 italic text-sm px-4 mb-1">
+              Enter customer's {{ item.label }}
+            </div>
+
+            <span class="mb-7">
+              <div class="mx-auto max-w-7xl px-4">
+                <!-- single line text -->
+                @if(item.type === 'text' || item.type === 'email'){<input
+                  type="text"
+                  id="text_field"
+                  class="bg-gray-50 border border-gray-300 mb-2 h-8.5 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="{{ item.placeholder }}"
+                  required
+                />}
+                <!-- multi line text -->
+                @if(item.type === 'textarea'){<textarea
+                  type="textarea"
+                  id="text_area(i)"
+                  class="bg-gray-50 border border-gray-300 mb-2 h-14 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="{{ item.placeholder }}"
+                ></textarea
+                >}
+                <!-- number area -->
+                @if(item.type ==='number'){
+                <input
+                  type="number"
+                  id="number"
+                  class="bg-gray-50 border border-gray-300 mb-2 h-8.5 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="{{ item.placeholder }}"
+                  required
+                />
+                }
+                <!-- radio button -->
+                @if(item.type === 'radio'){
+                <div
+                  class="bg-gray-50 border-gray-300 mb-2 h-10 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  *ngFor="let row of item.radioOptions"
+                >
+                  <input id="radio_Options" [value]="row" type="radio" />
+                  <label [for]="item?.name" class="pl-2">{{ row }}</label>
+                </div>
+                }
+                <!-- dropdown multi select -->
+                @if(item.type === 'select'){
+
+                <select class="form-select" aria-label="Default select example">
+                  <option selected value="">Choose</option>
+                  <ng-container *ngFor="let opt of item.options">
+                    <option
+                      [id]="opt.id"
+                      value="{{ opt.value }}"
+                      class="bg-gray-50 border-gray-300 h-8.5 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    >
+                      {{ opt.value }}
+                    </option>
+                  </ng-container>
+                </select>
+                }
+                <!-- checkbox select -->
+                @if(item.type === 'checkbox'){
+
+                <ng-container *ngFor="let option of item.checkboxOptions">
+                  <div class="form-check">
+                    <input type="checkbox" [value]="option.value" />
+                    <span class="text-sm pl-2">{{ option.label }}</span>
+                  </div>
+                </ng-container>
+                }
+
+                <!-- upload file -->
+
+                @if(item.type === 'file') {<input
+                  type="file"
+                  name="fileUpload"
+                  class="form-control"
+                  [accept]="item.acceptedFileTypes"
+                  class="bg-gray-50 border-gray-300 h-8.5 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                />
+                <span class="flex text-sm"
+                  ><img
+                    src="images/arrow-up.svg"
+                    alt="logo"
+                    [attr.width]="'12px'"
+                    [attr.height]="'12px'"
+                  /><span class="text-sm pl-2">Upload</span></span
+                >}
+                <!-- date area -->
+                @if(item.type === 'date'){
+                <div class="relative max-w-sm">
+                  <div
+                    class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
+                  >
+                    <svg
+                      class="w-4 h-4 text-gray-500 dark:text-gray-400"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"
+                      />
+                    </svg>
+                  </div>
+                  <input
+                    datepicker
+                    id="default-datepicker"
+                    type="date"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Select date"
+                  />
+                </div>
+                }
+                <!-- time area -->
+                @if(item.type === 'time'){
+                <div class="relative max-w-sm">
+                  <div
+                    class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
+                  >
+                    <svg
+                      class="w-4 h-4 text-gray-500 dark:text-gray-400"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                  <input
+                    type="time"
+                    id="time"
+                    class="bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    min="09:00"
+                    max="18:00"
+                    value="00:00"
+                    required
+                  />
+                </div>
+                }
+
+                <!-- date and time -->
+                @if(item.type === 'datetime-local'){
+                <div class="relative max-w-sm">
+                  <div
+                    class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
+                  >
+                    <svg
+                      class="w-4 h-4 text-gray-500 dark:text-gray-400"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                  <input
+                    type="datetime-local"
+                    id="datetime-local"
+                    class="bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    min="09:00"
+                    max="18:00"
+                    value="00:00"
+                    required
+                  />
+                </div>
+                }
+              </div>
+            </span>
+          </div>
+        </div>
+      </div>
+      <!-- editing fields -->
+      <div *ngIf="item.toggle" class="edit-form">
+        <div class="row form-group p-4">
+          <div class="flex">
+            <div class="w-14 content-center"><label>Label</label></div>
+            <input
+              type="text"
+              id="text_field-edit"
+              class="bg-gray-50 border mb-1 truncate border-gray-300 h-8.5 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              [(ngModel)]="item.label"
+            />
+          </div>
+          <div class="flex">
+            <div class="w-14 truncate content-center"><label>Name</label></div>
+            <input
+              type="text"
+              id="text_field-edit"
+              class="bg-gray-50 border mb-1 truncate border-gray-300 h-8.5 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              [(ngModel)]="item.name"
+            />
+          </div>
+          <div class="flex">
+            <div class="w-14 truncate content-center">
+              <label>Placeholder</label>
+            </div>
+            <input
+              type="text"
+              id="text_field-edit"
+              class="bg-gray-50 border mb-1 truncate border-gray-300 h-8.5 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              [(ngModel)]="item.placeholder"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- submit button -->
+    <div *ngIf="droppedItem.length >= 1" class="mt-2 justify-items-end">
+      <div class="content-end">
+        <button
+          type="button"
+          class="py-2.5 px-5 text-sm font-medium text-gray-900 rounded-sm focus:outline-none bg-white hover:bg-gray-100 hover:text-blue-700 focus:z-10 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+          (click)="updateForm($event)"
+        >
+          Save Form
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

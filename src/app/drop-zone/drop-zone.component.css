@@ -1,0 +1,53 @@
+.drop-zone {
+  /* border: 2px dashed #ccc; */
+  padding: 2%;
+}
+
+.dropped-item {
+  background-color: white;
+  /* padding: 1%; */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 1%;
+  margin-left: 6.5%;
+}
+.grabbable {
+  cursor: all-scroll; /* fallback if grab cursor is unsupported */
+  cursor: all-scroll;
+  cursor: -moz-all-scroll;
+  cursor: -webkit-all-scroll;
+}
+
+.grabbable:active {
+  cursor: all-scroll;
+  cursor: -moz-all-scroll;
+  cursor: -webkit-all-scroll;
+}
+.draggable-item {
+  padding: 1%;
+  margin: 0% 1% 0% 5%;
+  /* border: 0px solid #ccc; */
+  cursor: move;
+}
+.edit-form {
+  background-color: white;
+  margin-bottom: 10px;
+}
+
+.activated-required,
+.deactivated-required {
+  font-size: 28px;
+}
+
+.deactivated-required {
+  color: grey;
+}
+
+.activated-required {
+  color: rgb(0, 162, 255);
+}
+
+.activated-required:hover,
+.deactivated-required:hover {
+  cursor: pointer;
+}

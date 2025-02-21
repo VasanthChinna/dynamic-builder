@@ -46,7 +46,7 @@
 }
 =======
 {
-  "name": "dynamic-builder",
+  "name": "d-forms",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -57,15 +57,22 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^19.1.0",
+    "@angular/animations": "^19.1.6",
+    "@angular/cdk": "^19.1.4",
     "@angular/common": "^19.1.0",
     "@angular/compiler": "^19.1.0",
     "@angular/core": "^19.1.0",
     "@angular/forms": "^19.1.0",
+    "@angular/material": "^19.1.4",
     "@angular/platform-browser": "^19.1.0",
     "@angular/platform-browser-dynamic": "^19.1.0",
     "@angular/router": "^19.1.0",
+    "@formio/angular": "^9.0.0-rc.1",
+    "@formio/js": "^5.0.1",
+    "@tailwindcss/postcss": "^4.0.3",
+    "postcss": "^8.5.1",
     "rxjs": "~7.8.0",
+    "tailwindcss": "^4.0.3",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
   },

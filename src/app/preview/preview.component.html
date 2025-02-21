@@ -1,0 +1,316 @@
+<h2 mat-dialog-title>Preview</h2>
+<mat-dialog-content>
+  <form #myForm="ngForm" [formGroup]="dynamicForm" class="row g-3">
+    <ng-container *ngFor="let control of form">
+      <ng-container
+        *ngIf="
+          ['text', 'email', 'password', 'number', 'date'].includes(control.type)
+        "
+      >
+        <div [class]="control.class">
+          <label class="form-label">{{ control.label }}</label>
+          <input
+            [placeholder]="control.placeholder"
+            formControlName="{{ control.name }}"
+            class="form-control"
+            [type]="control.type"
+          />
+          <small
+            *ngIf="
+              (dynamicForm.get(control.name)?.invalid &&
+                dynamicForm.get(control.name)?.touched) ||
+              myForm.submitted
+            "
+            class="text-danger"
+            >{{ getValidationError(control) }}</small
+          >
+        </div>
+      </ng-container>
+      <ng-container *ngIf="control.type === 'select'">
+        <div [class]="control.class">
+          <label class="form-label">{{ control.label }}</label>
+          <select
+            formControlName="{{ control.name }}"
+            class="form-select"
+            aria-label="Default select example"
+          >
+            <option selected value="">Choose</option>
+            <ng-container *ngFor="let opt of control.options">
+              <option [id]="opt.id" value="{{ opt.value }}">
+                {{ opt.value }}
+              </option>
+            </ng-container>
+          </select>
+          <small
+            *ngIf="
+              (dynamicForm.get(control.name)?.invalid &&
+                dynamicForm.get(control.name)?.touched) ||
+              myForm.submitted
+            "
+            class="text-danger"
+            >{{ getValidationError(control) }}</small
+          >
+        </div>
+      </ng-container>
+      <ng-container *ngIf="control.type === 'radio'">
+        <div [class]="control.class">
+          <label>{{ control.label }}</label>
+          <div class="form-check" *ngFor="let row of control.radioOptions">
+            <input
+              formControlName="{{ control?.name }}"
+              [value]="row"
+              class="form-check-input"
+              type="radio"
+            />
+            <label [for]="control?.name" class="form-check-label">{{
+              row
+            }}</label>
+          </div>
+          <small
+            *ngIf="
+              (dynamicForm.get(control.name)?.invalid &&
+                dynamicForm.get(control.name)?.touched) ||
+              myForm.submitted
+            "
+            class="text-danger"
+            >{{ getValidationError(control) }}</small
+          >
+        </div>
+      </ng-container>
+      <ng-container *ngIf="control.type === 'textarea'">
+        <div [class]="control.class">
+          <label>{{ control.label }}</label>
+          <textarea
+            formControlName="{{ control.name }}"
+            class="form-control"
+            [placeholder]="control.placeholder"
+          ></textarea>
+          <small
+            *ngIf="
+              (dynamicForm.get(control.name)?.invalid &&
+                dynamicForm.get(control.name)?.touched) ||
+              myForm.submitted
+            "
+            class="text-danger"
+            >{{ getValidationError(control) }}</small
+          >
+        </div>
+      </ng-container>
+      <ng-container *ngIf="control.type === 'checkbox'">
+        <div [class]="control.class" [formGroupName]="control.name">
+          <label>{{ control.label }}</label>
+          <ng-container *ngFor="let option of control.checkboxOptions">
+            <div class="form-check">
+              <input
+                [formControlName]="option.value"
+                class="form-check-input"
+                type="checkbox"
+                [value]="option.value"
+              />
+              <label>{{ option.label }}</label>
+            </div>
+          </ng-container>
+          <small
+            *ngIf="
+              (dynamicForm.get(control.name)?.invalid &&
+                dynamicForm.get(control.name)?.touched) ||
+              myForm.submitted
+            "
+            class="text-danger"
+            >{{ getValidationError(control) }}</small
+          >
+        </div>
+      </ng-container>
+      <ng-container *ngIf="control.type === 'file'">
+        <div [class]="control.class">
+          <label>{{ control.label }}</label>
+          <div class="input-group mb-3">
+            <input
+              formControlName="{{ control.name }}"
+              type="file"
+              name="fileUpload"
+              class="form-control"
+              [accept]="control.acceptedFileTypes"
+            />
+            <span class="input-group-text" id="basic-addon2"
+              ><mat-icon>vertical_align_top</mat-icon>Upload</span
+            >
+          </div>
+          <small
+            *ngIf="
+              (dynamicForm.get(control.name)?.invalid &&
+                dynamicForm.get(control.name)?.touched) ||
+              myForm.submitted
+            "
+            class="text-danger"
+            >{{ getValidationError(control) }}</small
+          >
+        </div>
+      </ng-container>
+      <ng-container *ngIf="control.type === 'layout' && control.layout"
+        ><ng-container *ngFor="let item of control.layout">
+          <ng-container
+            *ngIf="
+              ['text', 'email', 'password', 'number', 'date'].includes(
+                item.type
+              )
+            "
+          >
+            <div [class]="control.class">
+              <label class="form-label">{{ item.label }}</label>
+              <input
+                [placeholder]="item.placeholder"
+                formControlName="{{ item.name }}"
+                class="form-control"
+                [type]="item.type"
+              />
+              <small
+                *ngIf="
+                  (dynamicForm.get(item.name)?.invalid &&
+                    dynamicForm.get(item.name)?.touched) ||
+                  myForm.submitted
+                "
+                class="text-danger"
+                >{{ getValidationError(item) }}</small
+              >
+            </div>
+          </ng-container>
+          <ng-container *ngIf="item.type === 'select'">
+            <div [class]="control.class">
+              <label class="form-label">{{ item.label }}</label>
+              <select
+                formControlName="{{ item.name }}"
+                class="form-select"
+                aria-label="Default select example"
+              >
+                <option selected value="">Choose</option>
+                <ng-container *ngFor="let opt of item.options">
+                  <option [id]="opt.id" value="{{ opt.value }}">
+                    {{ opt.value }}
+                  </option>
+                </ng-container>
+              </select>
+              <small
+                *ngIf="
+                  (dynamicForm.get(item.name)?.invalid &&
+                    dynamicForm.get(item.name)?.touched) ||
+                  myForm.submitted
+                "
+                class="text-danger"
+                >{{ getValidationError(item) }}</small
+              >
+            </div>
+          </ng-container>
+          <ng-container *ngIf="item.type === 'radio'">
+            <div [class]="control.class">
+              <label>{{ item.label }}</label>
+              <div class="form-check" *ngFor="let row of item.radioOptions">
+                <input
+                  formControlName="{{ item.name }}"
+                  [value]="row"
+                  class="form-check-input"
+                  type="radio"
+                />
+                <label [for]="item.name + row" class="form-check-label">{{
+                  row
+                }}</label>
+              </div>
+              <small
+                *ngIf="
+                  (dynamicForm.get(item.name)?.invalid &&
+                    dynamicForm.get(item.name)?.touched) ||
+                  myForm.submitted
+                "
+                class="text-danger"
+                >{{ getValidationError(item) }}</small
+              >
+            </div>
+          </ng-container>
+          <ng-container *ngIf="item.type === 'textarea'">
+            <div [class]="control.class">
+              <label>{{ item.label }}</label>
+              <textarea
+                formControlName="{{ item.name }}"
+                class="form-control"
+                [placeholder]="item.placeholder"
+              ></textarea>
+              <small
+                *ngIf="
+                  (dynamicForm.get(item.name)?.invalid &&
+                    dynamicForm.get(item.name)?.touched) ||
+                  myForm.submitted
+                "
+                class="text-danger"
+                >{{ getValidationError(item) }}</small
+              >
+            </div>
+          </ng-container>
+          <ng-container *ngIf="item.type === 'checkbox'">
+            <div [class]="control.class" [formGroupName]="item.name">
+              <label>{{ item.label }}</label>
+              <ng-container *ngFor="let option of item.checkboxOptions">
+                <div class="form-check">
+                  <input
+                    [formControlName]="option.value"
+                    class="form-check-input"
+                    type="checkbox"
+                    [value]="option.value"
+                  />
+                  <label>{{ option.label }}</label>
+                </div>
+              </ng-container>
+              <small
+                *ngIf="
+                  (dynamicForm.get(item.name)?.invalid &&
+                    dynamicForm.get(item.name)?.touched) ||
+                  myForm.submitted
+                "
+                class="text-danger"
+                >{{ getValidationError(item) }}</small
+              >
+            </div>
+          </ng-container>
+          <ng-container *ngIf="item.type === 'file'">
+            <div [class]="control.class">
+              <label>{{ item.label }}</label>
+              <div class="input-group mb-3">
+                <input
+                  formControlName="{{ item.name }}"
+                  type="file"
+                  name="fileUpload"
+                  class="form-control"
+                  [accept]="item.acceptedFileTypes"
+                />
+                <span class="input-group-text" id="basic-addon2"
+                  ><mat-icon>vertical_align_top</mat-icon>Upload</span
+                >
+              </div>
+              <small
+                *ngIf="
+                  (dynamicForm.get(item.name)?.invalid &&
+                    dynamicForm.get(item.name)?.touched) ||
+                  myForm.submitted
+                "
+                class="text-danger"
+                >{{ getValidationError(item) }}</small
+              >
+            </div>
+          </ng-container>
+        </ng-container></ng-container
+      >
+    </ng-container>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button
+    [disabled]="dynamicForm.invalid"
+    (click)="onSubmit()"
+    type="submit"
+    class="btn btn-primary mx-2"
+  >
+    Submit
+  </button>
+  <button (click)="onReset()" type="submit" class="btn btn-primary mx-2">
+    Reset
+  </button>
+</mat-dialog-actions>
